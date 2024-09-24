@@ -1,0 +1,20 @@
+----- Yelp Data Project -----
+
+1. Download the database from below link and import it:
+https://www.yelp.com/dataset
+2. import the following libraries:
+```
+import json
+import glob
+import tarfile
+from datetime import datetime
+from cassandra.cluster import Cluster
+from cassandra.metadata import KeyspaceMetadata
+from cassandra.query import BatchStatement, ConsistencyLevel
+```
+3. Create a keyspace and tables using below file:
+create_schema.py
+4. Load data using below file:
+load_data.py
+5. After successful loading of data, run the below file for UI:
+yelp_app.py
