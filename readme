@@ -1,100 +1,75 @@
------ Yelp Data Project -----
+# 📍 Yelp Review Application
 
-1. Download the database from below link and import it:
-https://www.yelp.com/dataset
-2. import the following libraries:
+A Python-based desktop application that emulates core functionalities of Yelp, allowing users to explore businesses and their reviews through a user-friendly interface. This project leverages Apache Cassandra for scalable data storage and Tkinter for the graphical user interface.
+
+---
+
+## 🧰 Tech Stack
+
+- **Backend**: Python, Apache Cassandra
+- **Frontend**: Tkinter (Python's standard GUI library)
+- **Data Source**: [Yelp Open Dataset](https://www.yelp.com/dataset)
+
+---
+
+## 📁 Project Structure
+
+Yelp_Review_Application/ 
+├── creation_schema.py # Defines Cassandra keyspace and tables 
+├── load_data.py # Loads Yelp dataset into Cassandra 
+├── yelp_app.py # Launches the Tkinter GUI application 
+├── yelp-logo-22.png # Yelp logo used in the GUI 
+└── README.md # Project documentation
+
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Prerequisites
+
+- **Python 3.x** installed
+- **Apache Cassandra** installed and running
+- Required Python libraries:
+  - `cassandra-driver`
+  - `tkinter` (usually included with Python)
+
+Install the Cassandra driver using pip:
 ```
-import json
-import glob
-import tarfile
-from datetime import datetime
-from cassandra.cluster import Cluster
-from cassandra.metadata import KeyspaceMetadata
-from cassandra.query import BatchStatement, ConsistencyLevel
+pip install cassandra-driver
 ```
-3. Create a keyspace and tables using below file:
-create_schema.py
-4. Load data using below file:
-load_data.py
-5. After successful loading of data, run the below file for UI:
-yelp_app.py
+
+###2. Download and Extract Yelp Dataset
+- Download the dataset from the Yelp Open Dataset.
+- Extract the contents to a known directory on your system.
+
+###3. Create Cassandra Keyspace and Tables
+- Run the `creation_schema.py` script to set up the necessary keyspace and tables in Cassandra:
+```
+python creation_schema.py
+```
+###4. Load Data into Cassandra
+Use the `load_data.py` script to parse the Yelp dataset and insert the data into Cassandra:
+```
+python load_data.py
+```
+Note: Ensure that the dataset files are correctly referenced in the script.
+###5. Launch the Application
+Start the Tkinter GUI application using:
+```
+python yelp_app.py
+```
+
+🖼️ Application Features
+Business Search: Find businesses by name or category.
+
+Review Browsing: View reviews associated with selected businesses.
+
+User-Friendly Interface: Intuitive GUI for seamless navigation.
+
+📌 Notes
+Ensure that Apache Cassandra is running before executing the scripts.
+
+Modify file paths in the scripts if your dataset is located in a different directory.
 
 
-----------------------------------------
-Certainly! Here's a description of what this project does, suitable for a presentation:
-
-
-This project is a Yelp-like application that provides a user-friendly interface for exploring businesses and their reviews. It's built using Python with tkinter for the GUI and utilizes a Cassandra database to store and retrieve data. Here are the key features and functionalities:
-
-
-
-
-Business Listing:
-
-The main window displays a list of businesses, including their names, addresses, star ratings, and review counts.
-
-Users can scroll through the list to explore various businesses.
-
-
-
-
-Search Functionality:
-
-A search bar allows users to look for specific businesses, enhancing user experience and navigation.
-
-
-
-
-Review System:
-
-Users can click on a business to view its reviews in a separate window.
-
-The review window shows recent reviews, including the reviewer's name and a snippet of their comment.
-
-Users can click "Show Full" to read the entire review.
-
-
-
-
-User Interaction:
-
-Users can add new reviews for a business, providing their name and review text.
-
-Existing reviews can be edited or deleted, allowing for user-generated content management.
-
-
-
-
-Database Integration:
-
-The application is connected to a Cassandra database, ensuring efficient storage and retrieval of business and review data.
-
-It uses CQL (Cassandra Query Language) for database operations.
-
-
-
-
-Real-time Updates:
-
-The interface refreshes to show new or updated reviews immediately after changes are made.
-
-
-
-
-User-friendly Design:
-
-The application features a clean, intuitive interface with the Yelp logo for brand recognition.
-
-It uses color coding and clear layout to enhance readability and user experience.
-
-
-
-
-Scalability:
-
-The use of Cassandra as the database allows for potential scalability to handle large amounts of data.
-
-
-
-
-This application demonstrates the integration of a GUI with a NoSQL database, showcasing how to build a functional review system similar to popular platforms like Yelp. It's an excellent example of how to create interactive data-driven applications using Python and modern database technologies.
